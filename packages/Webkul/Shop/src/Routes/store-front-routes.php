@@ -43,6 +43,18 @@ Route::group(['middleware' => ['web', 'locale', 'theme', 'currency']], function 
         'view' => 'shop::home.index',
     ])->name('shop.home.index');
 
+    Route::get('/home', [HomeController::class, 'home'])->defaults('_config', [
+        'view' => 'shop::home.home',
+    ])->name('shop.home.home');
+
+    Route::get('/register', [HomeController::class, 'register'])->defaults('_config', [
+        'view' => 'shop::home.register',
+    ])->name('shop.home.register');
+
+    Route::get('/register', [HomeController::class, 'login'])->defaults('_config', [
+        'view' => 'shop::home.login',
+    ])->name('shop.home.login');
+
     /**
      * Store front search.
      */

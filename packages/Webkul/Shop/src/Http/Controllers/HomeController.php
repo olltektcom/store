@@ -36,6 +36,40 @@ class HomeController extends Controller
     }
 
     /**
+     * Loads the home page for the storefront.
+     *
+     * @return \Illuminate\View\View
+     */
+    public function home()
+    {
+        $sliderData = $this->sliderRepository->getActiveSliders();
+
+        return view($this->_config['view'], compact('sliderData'));
+    }
+
+    /**
+     * Loads the home page for the storefront.
+     *
+     * @return \Illuminate\View\View
+     */
+    public function register()
+    {
+        $sliderData = $this->sliderRepository->getActiveSliders();
+
+        return view($this->_config['view'], compact('sliderData'));
+    }
+
+    /**
+     * Loads the home page for the storefront.
+     *
+     * @return \Illuminate\View\View
+     */
+    public function login()
+    {
+        return view($this->_config['view']);
+    }
+
+    /**
      * Loads the home page for the storefront if something wrong.
      *
      * @return \Exception

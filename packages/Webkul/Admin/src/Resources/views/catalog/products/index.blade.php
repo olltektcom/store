@@ -20,6 +20,11 @@
                     </span>
                 </div>
                 @if (bouncer()->hasPermission('catalog.products.create'))
+                    <a href="{{ route('admin.bulk-upload.index') }}" class="btn btn-lg btn-info">
+                        {{ __('bulkupload::app.admin.bulk-upload.index') }}
+                    </a>
+                @endif
+                @if (bouncer()->hasPermission('catalog.products.create'))
                     <a href="{{ route('admin.catalog.products.create') }}" class="btn btn-lg btn-primary">
                         {{ __('admin::app.catalog.products.add-product-btn-title') }}
                     </a>
