@@ -10,7 +10,7 @@
             .content-container .content .page-header .page-title{
                 width: 100%;
             }
-            
+
             .content-container .content .page-header .page-title .control-group {
                 margin-top: 20px!important;
                 width: 100%!important;
@@ -21,7 +21,7 @@
                 margin-top: 10px!important;
                 float: left;
             }
-       }        
+       }
     </style>
 @endpush
 
@@ -116,6 +116,9 @@
 
                                         if ($attribute->type == 'price') {
                                             array_push($validations, 'decimal');
+                                            if($attribute->id == 12) {
+                                                array_push($validations, 'min_value:1.00');
+                                            }
                                         }
 
                                         if ($attribute->type == 'file') {

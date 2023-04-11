@@ -780,6 +780,18 @@ abstract class AbstractType
     }
 
     /**
+     * Get product price html.
+     *
+     * @return string
+     */
+    public function getProfitHtml()
+    {
+        $html = '<span class="badge badge-primary">' . number_format($this->product->Profit, 2) .'</span>';
+
+        return $html;
+    }
+
+    /**
      * Get inclusive tax rates.
      *
      * @param  float  $totalPrice

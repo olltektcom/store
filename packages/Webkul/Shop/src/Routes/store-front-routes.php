@@ -1,13 +1,14 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-use Webkul\CMS\Http\Controllers\Shop\PagePresenterController;
+use App\Http\Middleware\IsAuthenticated;
 use Webkul\Shop\Http\Controllers\HomeController;
-use Webkul\Shop\Http\Controllers\ProductController;
-use Webkul\Shop\Http\Controllers\CategoryController;
 use Webkul\Shop\Http\Controllers\ReviewController;
 use Webkul\Shop\Http\Controllers\SearchController;
+use Webkul\Shop\Http\Controllers\ProductController;
+use Webkul\Shop\Http\Controllers\CategoryController;
 use Webkul\Shop\Http\Controllers\SubscriptionController;
+use Webkul\CMS\Http\Controllers\Shop\PagePresenterController;
 
 Route::group(['middleware' => ['web', 'locale', 'theme', 'currency']], function () {
     /**
@@ -41,19 +42,14 @@ Route::group(['middleware' => ['web', 'locale', 'theme', 'currency']], function 
      */
     Route::get('/', [HomeController::class, 'index'])->defaults('_config', [
         'view' => 'shop::home.index',
-    ])->name('shop.home.index');
+    ])
+    ->middleware(IsAuthenticated::class)
+    ->name('shop.home.index');
 
     Route::get('/home', [HomeController::class, 'home'])->defaults('_config', [
         'view' => 'shop::home.home',
-    ])->name('shop.home.home');
-
-    Route::get('/register', [HomeController::class, 'register'])->defaults('_config', [
-        'view' => 'shop::home.register',
-    ])->name('shop.home.register');
-
-    Route::get('/register', [HomeController::class, 'login'])->defaults('_config', [
-        'view' => 'shop::home.login',
-    ])->name('shop.home.login');
+    ])
+    ->name('shop.home.home');
 
     /**
      * Store front search.
