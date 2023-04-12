@@ -37,58 +37,61 @@ Route::group(['middleware' => ['web', 'locale', 'theme', 'currency']], function 
             ->name('shop.productOrCategory.index');
     });
 
-    /**
-     * Store front home.
-     */
-    Route::get('/', [HomeController::class, 'index'])->defaults('_config', [
-        'view' => 'shop::home.index',
-    ])
-    ->middleware(IsAuthenticated::class)
-    ->name('shop.home.index');
-
     Route::get('/home', [HomeController::class, 'home'])->defaults('_config', [
         'view' => 'shop::home.home',
     ])
     ->name('shop.home.home');
 
-    /**
-     * Store front search.
+    Route::group(['middleware' => ['isAuthenticated']], function () {
+        /**
+     * Store front home.
      */
-    Route::get('/search', [SearchController::class, 'index'])->defaults('_config', [
-        'view' => 'shop::search.search',
-    ])->name('shop.search.index');
+        Route::get('/', [HomeController::class, 'index'])->defaults('_config', [
+            'view' => 'shop::home.index',
+        ])
+        ->middleware(IsAuthenticated::class)
+        ->name('shop.home.index');
 
-    Route::post('/upload-search-image', [HomeController::class, 'upload'])->name('shop.image.search.upload');
+        /**
+         * Store front search.
+         */
+        Route::get('/search', [SearchController::class, 'index'])->defaults('_config', [
+            'view' => 'shop::search.search',
+        ])->name('shop.search.index');
 
-    /**
-     * Subscription routes.
-     */
-    Route::get('/subscribe', [SubscriptionController::class, 'subscribe'])->name('shop.subscribe');
+        Route::post('/upload-search-image', [HomeController::class, 'upload'])->name('shop.image.search.upload');
 
-    Route::get('/unsubscribe/{token}', [SubscriptionController::class, 'unsubscribe'])->name('shop.unsubscribe');
+        /**
+         * Subscription routes.
+         */
+        Route::get('/subscribe', [SubscriptionController::class, 'subscribe'])->name('shop.subscribe');
 
-    /**
-     * Product and categories routes.
-     */
-    Route::get('/reviews/{slug}', [ReviewController::class, 'show'])->defaults('_config', [
-        'view' => 'shop::products.reviews.index',
-    ])->name('shop.reviews.index');
+        Route::get('/unsubscribe/{token}', [SubscriptionController::class, 'unsubscribe'])->name('shop.unsubscribe');
 
-    Route::get('/product/{slug}/review', [ReviewController::class, 'create'])->defaults('_config', [
-        'view' => 'shop::products.reviews.create',
-    ])->name('shop.reviews.create');
+        /**
+         * Product and categories routes.
+         */
+        Route::get('/reviews/{slug}', [ReviewController::class, 'show'])->defaults('_config', [
+            'view' => 'shop::products.reviews.index',
+        ])->name('shop.reviews.index');
 
-    Route::post('/product/{slug}/review', [ReviewController::class, 'store'])->defaults('_config', [
-        'redirect' => 'shop.home.index',
-    ])->name('shop.reviews.store');
+        Route::get('/product/{slug}/review', [ReviewController::class, 'create'])->defaults('_config', [
+            'view' => 'shop::products.reviews.create',
+        ])->name('shop.reviews.create');
 
-    Route::get('/downloadable/download-sample/{type}/{id}', [ProductController::class, 'downloadSample'])->name('shop.downloadable.download_sample');
+        Route::post('/product/{slug}/review', [ReviewController::class, 'store'])->defaults('_config', [
+            'redirect' => 'shop.home.index',
+        ])->name('shop.reviews.store');
 
-    Route::get('/product/{id}/{attribute_id}', [ProductController::class, 'download'])->defaults('_config', [
-        'view' => 'shop.products.index',
-    ])->name('shop.product.file.download');
+        Route::get('/downloadable/download-sample/{type}/{id}', [ProductController::class, 'downloadSample'])->name('shop.downloadable.download_sample');
 
-    Route::get('categories/filterable-attributes/{categoryId?}', [CategoryController::class, 'getFilterAttributes'])->name('catalog.categories.filterable-attributes');
+        Route::get('/product/{id}/{attribute_id}', [ProductController::class, 'download'])->defaults('_config', [
+            'view' => 'shop.products.index',
+        ])->name('shop.product.file.download');
 
-    Route::get('categories/maximum-price/{categoryId?}', [CategoryController::class, 'getCategoryProductMaximumPrice'])->name('catalog.categories.maximum-price');
+        Route::get('categories/filterable-attributes/{categoryId?}', [CategoryController::class, 'getFilterAttributes'])->name('catalog.categories.filterable-attributes');
+
+        Route::get('categories/maximum-price/{categoryId?}', [CategoryController::class, 'getCategoryProductMaximumPrice'])->name('catalog.categories.maximum-price');
+    });
+
 });
