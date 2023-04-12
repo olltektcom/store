@@ -298,9 +298,11 @@ class Cart
             Event::dispatch('checkout.cart.update.before', $item);
 
             $this->cartItemRepository->update([
+                'price'             => $item->price,
+                'profit'            => $data['profit'],
                 'quantity'          => $quantity,
-                'total'             => core()->convertPrice($item->price * $quantity),
-                'base_total'        => $item->price * $quantity,
+                'total'             => core()->convertPrice($item->price * $quantity) ,
+                'base_total'        => $item->price * $quantity ,
                 'total_weight'      => $item->weight * $quantity,
                 'base_total_weight' => $item->weight * $quantity,
             ], $itemId);

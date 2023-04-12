@@ -24,6 +24,19 @@
 @push('scripts')
     @include('shop::checkout.cart.coupon')
 
+    <script>
+
+
+        function checkProfit(event) {
+            const key = event.key;
+            if (isNaN(parseInt(key))) {
+                event.preventDefault();
+            }
+
+
+        }
+    </script>
+
     <script type="text/x-template" id="cart-template">
         <div class="container">
             <section class="cart-details row no-margin col-12">
@@ -39,6 +52,7 @@
                             <span class="col-2 fw6 fs16 no-padding text-right">
                                 {{ __('velocity::app.checkout.qty') }}
                             </span>
+
 
                             <span class="col-2 fw6 fs16 text-right pr0">
                                 {{ __('velocity::app.checkout.subtotal') }}
@@ -56,13 +70,16 @@
 
                                     @php
                                         $showUpdateCartButton = false;
+                                        $total = 0;
                                     @endphp
 
                                     @foreach ($cart->items as $key => $item)
                                         @php
                                             $productBaseImage = $item->product->getTypeInstance()->getBaseImage($item);
-
                                             $product = $item->product;
+
+                                            $difference = $item->profit - $product->Profit;
+                                            $total += ($item->total) + ($difference * $item->quantity);
 
                                             $productPrice = $product->getTypeInstance()->getProductPrices();
 
@@ -120,12 +137,13 @@
                                                     <div class="row">
                                                         <div class="col-md-12">
                                                             <div class="product-price">
-                                                                <span>{{ core()->currency($item->base_price) }}</span>
+                                                                <span>{{ core()->currency($item->base_price + $difference) }}</span>
                                                             </div>
                                                         </div>
                                                         <div class="col-md-12">
-                                                            <div class="product-profit">
-                                                                <span>Profit: {{ number_format($product->Profit, 2) }}</span>
+                                                            <div class="product-profit" style="margin-top:20px">
+                                                                <span>Profit: </span>
+                                                                <input name="profit" id="profit-input" onkeypress="checkProfit(event)" type="text" class="form-control" value="{{ $item->profit ? $item->profit : number_format($item->product->getTypeInstance()->getMinimalProfit(), 2) }}">
                                                             </div>
                                                         </div>
 
@@ -189,7 +207,7 @@
 
                                             <div class="product-price fs18 col-1">
                                                 <span class="card-current-price fw6 mr10">
-                                                    {{ core()->currency( $item->base_total) }}
+                                                    {{ $cart ? core()->currency($cart->base_grand_total + ($difference * $item->quantity))  : core()->currency( $item->base_total) }}
                                                 </span>
                                             </div>
 
@@ -246,7 +264,7 @@
 
                     @if ($cart)
                         <div class="col-lg-4 col-md-12 offset-lg-1 row order-summary-container">
-                            @include('shop::checkout.total.summary', ['cart' => $cart])
+                            @include('shop::checkout.total.summary', ['cart' => $cart, 'total' => $total])
 
                             <coupon-component></coupon-component>
                         </div>
@@ -291,4 +309,6 @@
             })
         })();
     </script>
+
+
 @endpush

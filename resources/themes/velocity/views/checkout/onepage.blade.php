@@ -102,14 +102,14 @@
             var summaryTemplateRenderFns = [];
             var shippingTemplateRenderFns = [];
 
-            @auth('customer')
-                @if(auth('customer')->user()->addresses)
-                    customerAddress = @json(auth('customer')->user()->addresses);
-                    customerAddress.email = "{{ auth('customer')->user()->email }}";
-                    customerAddress.first_name = "{{ auth('customer')->user()->first_name }}";
-                    customerAddress.last_name = "{{ auth('customer')->user()->last_name }}";
-                @endif
-            @endauth
+            // @auth('customer')
+            //     @if(auth('customer')->user()->addresses)
+            //         customerAddress = @json(auth('customer')->user()->addresses);
+            //         customerAddress.email = "{{ auth('customer')->user()->email }}";
+            //         customerAddress.first_name = "{{ auth('customer')->user()->first_name }}";
+            //         customerAddress.last_name = "{{ auth('customer')->user()->last_name }}";
+            //     @endif
+            // @endauth
 
             Vue.component('checkout', {
                 template: '#checkout-template',

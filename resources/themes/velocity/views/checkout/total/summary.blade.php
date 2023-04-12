@@ -3,7 +3,9 @@
 
     <div class="row">
         <span class="col-8">{{ __('velocity::app.checkout.sub-total') }}</span>
-        <span class="col-4 text-right">{{ core()->currency($cart->base_sub_total) }}</span>
+        <!-- <span class="col-4 text-right">{{ core()->currency($cart->base_sub_total) }}</span> -->
+        <span class="col-4 text-right">{{ core()->currency($total) }}</span>
+
     </div>
 
     @if ($cart->selected_shipping_rate)
@@ -40,7 +42,8 @@
     <div class="payable-amount row" id="grand-total-detail">
         <span class="col-8">{{ __('shop::app.checkout.total.grand-total') }}</span>
         <span class="col-4 text-right fw6" id="grand-total-amount-detail">
-            {{ core()->currency($cart->base_grand_total) }}
+            <!-- {{ core()->currency($cart->base_grand_total) }} -->
+            {{ core()->currency($total) }}
         </span>
     </div>
 
