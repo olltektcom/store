@@ -26,7 +26,7 @@
             @endif
 
             <span></span>
-            
+
             <div class="horizontal-rule"></div>
         </div>
 

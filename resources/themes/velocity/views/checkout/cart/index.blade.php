@@ -69,7 +69,7 @@
                                             if ($product->getTypeInstance()->showQuantityBox()) {
                                                 $showUpdateCartButton = true;
                                             }
-                                                
+
                                             if (is_null ($product->url_key)) {
                                                 if (! is_null($product->parent)) {
                                                     $url_key = $product->parent->url_key;
@@ -117,8 +117,18 @@
                                                 @endif
 
                                                 <div class="row col-12 no-padding no-margin item-price">
-                                                    <div class="product-price">
-                                                        <span>{{ core()->currency($item->base_price) }}</span>
+                                                    <div class="row">
+                                                        <div class="col-md-12">
+                                                            <div class="product-price">
+                                                                <span>{{ core()->currency($item->base_price) }}</span>
+                                                            </div>
+                                                        </div>
+                                                        <div class="col-md-12">
+                                                            <div class="product-profit">
+                                                                <span>Profit: {{ number_format($product->Profit, 2) }}</span>
+                                                            </div>
+                                                        </div>
+
                                                     </div>
                                                 </div>
 

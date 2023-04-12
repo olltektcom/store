@@ -554,6 +554,17 @@ abstract class AbstractType
     }
 
     /**
+     * Get product minimal price.
+     *
+     * @param  int  $qty
+     * @return float
+     */
+    public function getMinimalProfit($qty = null)
+    {
+        return $this->product->Profit;
+    }
+
+    /**
      * Get product maximum price.
      *
      * @return float
