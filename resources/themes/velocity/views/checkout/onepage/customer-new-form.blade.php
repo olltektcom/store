@@ -542,7 +542,7 @@
     </div>
 
     @if ($cart->haveStockableItems())
-        <div class="mb10">
+        <!-- <div class="mb10">
             <span class="checkbox fs16 display-inbl no-margin">
                 <input
                     id="billing[use_for_shipping]"
@@ -555,7 +555,7 @@
                     {{ __('shop::app.checkout.onepage.use_for_shipping') }}
                 </span>
             </span>
-        </div>
+        </div> -->
     @endif
 
     <!-- @auth('customer')

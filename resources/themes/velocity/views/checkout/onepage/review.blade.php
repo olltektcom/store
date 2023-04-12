@@ -90,7 +90,7 @@
 
             </div>
 
-            <div class="cart-item-list">
+            <!-- <div class="cart-item-list">
                 <h4 class="fw6">{{ __('velocity::app.checkout.items') }}</h4>
 
                 @foreach ($cart->items as $item)
@@ -149,11 +149,11 @@
                         </div>
                     </div>
                 @endforeach
-            </div>
+            </div> -->
 
             <div class="order-description row fs16 cart-details">
                 <div class="col-lg-4 col-md-12">
-                    @if ($cart->haveStockableItems())
+                    <!-- @if ($cart->haveStockableItems())
                         <div class="shipping mb20">
                             <div class="decorator">
                                 <i class="icon shipping-icon"></i>
@@ -169,7 +169,7 @@
                                 </div>
                             </div>
                         </div>
-                    @endif
+                    @endif -->
 
                     <div class="payment mb20">
                         <div class="decorator">

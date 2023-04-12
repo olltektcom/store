@@ -69,7 +69,7 @@
                                         </thead>
 
                                         <tbody>
-                                            @foreach ($order->items as $item)
+                                            @foreach ($order->cart->items as $item)
                                                 <tr>
                                                     <td data-value="{{ __('shop::app.customer.account.order.view.SKU') }}">
                                                         {{ $item->getTypeInstance()->getOrderedItem($item)->sku }}

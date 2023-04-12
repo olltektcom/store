@@ -289,6 +289,10 @@ class Cart
                 throw new Exception(__('shop::app.checkout.cart.quantity.illegal'));
             }
 
+            if($data['profit'] < $item->product->Profit) {
+                throw new Exception(__('shop::app.checkout.cart.profit.illegal'));
+            }
+
             $item->quantity = $quantity;
 
             if (! $this->isItemHaveQuantity($item)) {
