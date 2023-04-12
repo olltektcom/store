@@ -125,7 +125,6 @@
 
                                         <div class="col-12 price">
                                             @include ('shop::products.price', ['product' => $product])
-                                            @include ('shop::products.profit', ['product' => $product])
 
                                             @if (
                                                 Webkul\Tax\Helpers\Tax::isTaxInclusive()
@@ -297,7 +296,7 @@
                 },
 
                 activateAutoScroll: function(event) {
-
+                    
                     /**
                      * This is normal Element
                      */

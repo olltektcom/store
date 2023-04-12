@@ -87,7 +87,7 @@
                 <input name="_method" type="hidden" value="PUT">
 
                 @foreach ($product->attribute_family->attribute_groups as $index => $attributeGroup)
-                    <?php $customAttributes = $product->getEditableAttributes($attributeGroup); ?>
+                    <?php $customAttributes = $product->getEditableAttributes($attributeGroup)->sortBy('position'); ?>
 
                     @if (count($customAttributes))
 
