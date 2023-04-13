@@ -520,6 +520,9 @@ return [
                 'inventory_warning' => 'The requested quantity is not available, please try again later.',
                 'error'             => 'Cannot update the item(s) at the moment, please try again later.',
             ],
+            'profit' => [
+                'illegal' => 'Profit is illegal'
+            ],
             'item'                      => [
                 'error_remove'   => 'No items to remove from the cart.',
                 'success'        => 'Item is successfully added to cart.',
@@ -577,9 +580,9 @@ return [
             'payment-method-name' => [
                 'PayPal Smart Button' => 'PayPal Smart Button',
                 'PayPal'              => 'PayPal',
-                'Cash On Delivery'    => 'Cash On Delivery',                
-                'Money Transfer'      => 'Money Transfer',                
-                'Paypal Standard'     => 'PayPal Standard'    
+                'Cash On Delivery'    => 'Cash On Delivery',
+                'Money Transfer'      => 'Money Transfer',
+                'Paypal Standard'     => 'PayPal Standard'
             ],
             'summary'             => 'Order Summary',
             'price'               => 'Price',

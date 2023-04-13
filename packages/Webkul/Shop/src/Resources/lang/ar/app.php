@@ -520,7 +520,9 @@ return [
                 'inventory_warning' => 'الكمية المطلوبة غير متوفرة ، الرجاء المحاولة لاحقا',
                 'error'             => 'لا يستطيع تحديث عنصر s في الوقت الحالي رجاء حاول ثانية لاحقا',
             ],
-
+            'profit' => [
+                'illegal' => 'نسبة الربح لايمكن ان تكون اقل من الافتراضية'
+            ],
             'item'                      => [
                 'error_remove'   => 'لا عناصر لإزالتها من العربة',
                 'success'        => 'تم بنجاح إضافة العنصر إلى العربة',
@@ -578,10 +580,10 @@ return [
             'payment-method-name' => [
                 'PayPal Smart Button' => 'زر PayPal الذكي',
                 'PayPal'              => 'باي بال ',
-                'Cash On Delivery'    => 'الدفع عند الاستلام',                
-                'Money Transfer'      => 'حوالة مالية',                
+                'Cash On Delivery'    => 'الدفع عند الاستلام',
+                'Money Transfer'      => 'حوالة مالية',
                 'PayPal Standard'     => 'معيار PayPal'
-                
+
             ],
             'summary'             => 'المعلومات',
             'price'               => 'السعر',
