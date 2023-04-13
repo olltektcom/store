@@ -289,7 +289,7 @@ class Cart
                 throw new Exception(__('shop::app.checkout.cart.quantity.illegal'));
             }
 
-            if($data['profit'] < $item->product->Profit) {
+            if($data['profit'] <  $item->product->getTypeInstance()->getMinimalProfit()) {
                 throw new Exception(__('shop::app.checkout.cart.profit.illegal'));
             }
 
@@ -300,10 +300,13 @@ class Cart
             }
 
             Event::dispatch('checkout.cart.update.before', $item);
+            if(request('currency')) {
+                dd("new code", $item->convertCurrency($data['profit'], request('curreny', 'SAR')));
+            }
 
             $this->cartItemRepository->update([
                 'price'             => $item->price,
-                'profit'            => $data['profit'],
+                'profit'            => core()->convertToBasePrice($data['profit']),
                 'quantity'          => $quantity,
                 'total'             => core()->convertPrice($item->price * $quantity) ,
                 'base_total'        => $item->price * $quantity ,

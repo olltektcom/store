@@ -32,8 +32,6 @@
             if (isNaN(parseInt(key))) {
                 event.preventDefault();
             }
-
-
         }
     </script>
 
@@ -143,7 +141,7 @@
                                                         <div class="col-md-12">
                                                             <div class="product-profit" style="margin-top:20px">
                                                                 <span>Profit: </span>
-                                                                <input name="profit" id="profit-input" onkeypress="checkProfit(event)" type="text" class="form-control" value="{{ $item->profit ? $item->profit : number_format($item->product->getTypeInstance()->getMinimalProfit(), 2) }}">
+                                                                <input name="profit" id="profit-input" onkeypress="checkProfit(event)" type="text" class="form-control" value="{{ $item->profit > 0 ? core()->convertPrice(round($item->profit, 2)) : core()->convertPrice(round($item->product->Profit, 2)) }}">
                                                             </div>
                                                         </div>
 

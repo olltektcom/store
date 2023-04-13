@@ -604,6 +604,15 @@ class Core
         return $this->formatPrice($this->convertPrice($amount));
     }
 
+    public function mainPrice($amount = 0)
+    {
+        if (is_null($amount)) {
+            $amount = 0;
+        }
+
+        return $this->convertPrice($amount);
+    }
+
     /**
      * Return currency symbol from currency code.
      *

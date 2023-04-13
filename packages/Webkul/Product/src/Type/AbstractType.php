@@ -560,7 +560,7 @@ abstract class AbstractType
      */
     public function getMinimalProfit()
     {
-        return $this->product->Profit;
+        return core()->mainPrice($this->evaluatePrice($this->product->Profit));
     }
 
     /**
@@ -790,15 +790,18 @@ abstract class AbstractType
     }
 
     /**
-     * Get product price html.
+     * Get product profit html.
      *
      * @return string
      */
     public function getProfitHtml()
     {
-        $html = '<span class="badge badge-primary">' . number_format($this->product->Profit, 2) .'</span>';
+        return '<span class="badge badge-primary">' . core()->currency($this->evaluatePrice($this->product->Profit)) . '</span>';
+    }
 
-        return $html;
+    public function getProfit()
+    {
+        return core()->currency($this->evaluatePrice($this->product->Profit));
     }
 
     /**
