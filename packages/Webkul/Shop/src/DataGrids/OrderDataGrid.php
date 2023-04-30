@@ -28,9 +28,20 @@ class OrderDataGrid extends DataGrid
      */
     public function prepareQueryBuilder()
     {
-        $queryBuilder = DB::table('orders as order')
-            ->addSelect('order.id', 'order.increment_id', 'order.status', 'order.created_at', 'order.grand_total', 'order.order_currency_code', DB::raw('SUM(cart_items.profit) as total_profit'))
-            ->where('customer_id', auth()->guard('customer')->user()->id);
+        // $queryBuilder = DB::table('orders as order')
+        //     ->addSelect('order.id', 'order.increment_id', 'order.status', 'order.created_at', 'order.grand_total', 'order.order_currency_code')
+        //     ->where('customer_id', auth()->guard('customer')->user()->id);
+
+        $queryBuilder = DB::table('orders')
+            ->select('orders.id', 'orders.increment_id', 'orders.status', 'orders.created_at', 'orders.grand_total', 'orders.order_currency_code', DB::raw('SUM(cart_items.profit) as total_profit'))
+            ->join('order_items', 'orders.id', '=', 'order_items.order_id')
+            ->join('cart_items', function ($join) {
+                $join->on('order_items.product_id', '=', 'cart_items.product_id')
+                    ->on('order_items.order_id', '=', 'cart_items.cart_id');
+            })
+            ->where('orders.customer_id', auth()->guard('customer')->user()->id)
+            ->groupBy('orders.id', 'orders.increment_id', 'orders.status', 'orders.created_at', 'orders.grand_total', 'orders.order_currency_code');
+
 
         $this->setQueryBuilder($queryBuilder);
     }
@@ -71,6 +82,7 @@ class OrderDataGrid extends DataGrid
                 return core()->formatPrice($value->grand_total, $value->order_currency_code);
             },
         ]);
+
 
         $this->addColumn([
             'index'      => 'total_profit',
