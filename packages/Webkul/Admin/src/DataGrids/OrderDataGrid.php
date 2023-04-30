@@ -38,10 +38,14 @@ class OrderDataGrid extends DataGrid
                 $leftJoin->on('order_address_billing.order_id', '=', 'orders.id')
                     ->where('order_address_billing.address_type', OrderAddress::ADDRESS_TYPE_BILLING);
             })
-            ->addSelect('orders.id', 'orders.increment_id', 'orders.base_sub_total', 'orders.base_grand_total', 'orders.created_at', 'channel_name', 'status')
+            ->join('cart', 'cart.id', '=', 'orders.cart_id')
+            ->join('cart_items', 'cart_items.cart_id', '=', 'cart.id')
+            ->addSelect('orders.id', 'orders.increment_id', 'orders.base_sub_total', 'orders.base_grand_total', 'orders.created_at', 'channel_name', 'status', DB::raw('SUM(cart_items.profit) as total_profit'))
             ->addSelect(DB::raw('CONCAT(' . DB::getTablePrefix() . 'order_address_billing.first_name, " ", ' . DB::getTablePrefix() . 'order_address_billing.last_name) as billed_to'))
-            ->addSelect(DB::raw('CONCAT(' . DB::getTablePrefix() . 'order_address_shipping.first_name, " ", ' . DB::getTablePrefix() . 'order_address_shipping.last_name) as shipped_to'));
+            ->addSelect(DB::raw('CONCAT(' . DB::getTablePrefix() . 'order_address_shipping.first_name, " ", ' . DB::getTablePrefix() . 'order_address_shipping.last_name) as shipped_to'))
+            ->groupBy('orders.id');
 
+        // dd($queryBuilder->get());
         $this->addFilter('billed_to', DB::raw('CONCAT(' . DB::getTablePrefix() . 'order_address_billing.first_name, " ", ' . DB::getTablePrefix() . 'order_address_billing.last_name)'));
         $this->addFilter('shipped_to', DB::raw('CONCAT(' . DB::getTablePrefix() . 'order_address_shipping.first_name, " ", ' . DB::getTablePrefix() . 'order_address_shipping.last_name)'));
         $this->addFilter('increment_id', 'orders.increment_id');
@@ -69,6 +73,16 @@ class OrderDataGrid extends DataGrid
         $this->addColumn([
             'index'      => 'base_sub_total',
             'label'      => trans('admin::app.datagrid.sub-total'),
+            'type'       => 'price',
+            'searchable' => false,
+            'sortable'   => true,
+            'filterable' => true,
+        ]);
+
+
+        $this->addColumn([
+            'index'      => 'total_profit',
+            'label'      => trans('admin::app.datagrid.total_profit'),
             'type'       => 'price',
             'searchable' => false,
             'sortable'   => true,

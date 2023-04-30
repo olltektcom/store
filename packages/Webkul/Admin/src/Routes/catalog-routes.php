@@ -1,10 +1,11 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use Webkul\Product\Http\Controllers\ProductController;
+use Webkul\Attribute\Http\Controllers\BalanceController;
+use Webkul\Category\Http\Controllers\CategoryController;
 use Webkul\Attribute\Http\Controllers\AttributeController;
 use Webkul\Attribute\Http\Controllers\AttributeFamilyController;
-use Webkul\Category\Http\Controllers\CategoryController;
-use Webkul\Product\Http\Controllers\ProductController;
 
 /**
  * Catalog routes.
@@ -165,5 +166,12 @@ Route::group(['middleware' => ['web', 'admin'], 'prefix' => config('app.admin_ur
         ])->name('admin.catalog.families.update');
 
         Route::post('/families/delete/{id}', [AttributeFamilyController::class, 'destroy'])->name('admin.catalog.families.delete');
+
+        /**
+         * Attribute balance routes.
+         */
+        Route::get('/balances', [BalanceController::class, 'index'])->defaults('_config', [
+            'view' => 'admin::catalog.balances.index',
+        ])->name('admin.catalog.balances.index');
     });
 });

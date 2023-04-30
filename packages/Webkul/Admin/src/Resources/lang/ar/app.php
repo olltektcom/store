@@ -260,6 +260,7 @@ return [
         'file-name'        => 'File Name',
         'path'             => 'Path',
         'link-for-google'  => 'Link For Google',
+        'total_profit'     => 'Total profit',
     ],
 
     'account' => [
@@ -732,6 +733,10 @@ return [
             'filterable-attributes'    => 'سمات قابلة للفلترة',
             'attributes'               => 'السمات',
             'mass-update-success'      => 'تم تحديث جميع الفئات المحددة بنجاح',
+        ],
+
+        'balances' => [
+            'title' => 'الأرباح',
         ],
     ],
 
@@ -1661,5 +1666,12 @@ return [
             'processing' => 'معالجة الطلب',
             'pending_payment' => 'في انتظار الدفع',
         ],
+    ],
+
+    'profit' => [
+        'first_name' => 'الاسم الاول',
+        'email' => 'الايميل',
+        'phone' => 'رقم الهاتف',
+        'total_profit' => 'اجمالي الأرباح',
     ],
 ];

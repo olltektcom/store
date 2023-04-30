@@ -163,7 +163,7 @@
                                             {!! view_render_event('sales.order.customer_group.after', ['order' => $order]) !!}
                                         </div>
                                     </div>
-                                </div>                               
+                                </div>
 
                             </div>
                         </accordian>
@@ -202,7 +202,7 @@
                                                 </div>
                                             </div>
                                         @endif
-                                    </div>                                   
+                                    </div>
                                 </div>
                             </accordian>
                         @endif
@@ -286,7 +286,7 @@
                                             </div>
                                         </div>
                                     @endif
-                                </div>                               
+                                </div>
                             </div>
                         </accordian>
 
@@ -308,13 +308,13 @@
                                                         <th>{{ __('admin::app.sales.orders.discount-amount') }}</th>
                                                     @endif
                                                     <th>{{ __('admin::app.sales.orders.grand-total') }}</th>
+                                                    <th>{{ __('admin::app.datagrid.total_profit') }}</th>
                                                 </tr>
                                             </thead>
 
                                             <tbody>
 
                                                 @foreach ($order->items as $item)
-
                                                     <tr>
                                                         <td>
                                                             {{ $item->getTypeInstance()->getOrderedItem($item)->sku }}
@@ -367,14 +367,14 @@
                                                         @if ($order->base_discount_amount > 0)
                                                             <td>{{ core()->formatBasePrice($item->base_discount_amount) }}</td>
                                                         @endif
-
                                                         <td>{{ core()->formatBasePrice($item->base_total + $item->base_tax_amount - $item->base_discount_amount) }}</td>
+                                                        <td>{{ core()->formatBasePrice(\Webkul\Checkout\Models\CartItem::where('cart_id', $order->cart->id)->where('product_id', $item->product->id)->first()->profit) }}</td>
                                                     </tr>
                                                 @endforeach
                                         </table>
                                     </div>
                                 </div>
-                               
+
 
                                 <div class="summary-comment-container">
                                     <div class="comment-container">

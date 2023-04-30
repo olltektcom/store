@@ -74,6 +74,12 @@ return [
         'sort'       => 4,
         'icon-class' => '',
     ], [
+        'key'        => 'catalog.balance',
+        'name'       => 'admin::app.catalog.balances.title',
+        'route'      => 'admin.catalog.balances.index',
+        'sort'       => 5,
+        'icon-class' => '',
+    ],[
         'key'        => 'customers',
         'name'       => 'admin::app.layouts.customers',
         'route'      => 'admin.customer.index',

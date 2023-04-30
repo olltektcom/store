@@ -29,7 +29,7 @@ class OrderDataGrid extends DataGrid
     public function prepareQueryBuilder()
     {
         $queryBuilder = DB::table('orders as order')
-            ->addSelect('order.id', 'order.increment_id', 'order.status', 'order.created_at', 'order.grand_total', 'order.order_currency_code')
+            ->addSelect('order.id', 'order.increment_id', 'order.status', 'order.created_at', 'order.grand_total', 'order.order_currency_code', DB::raw('SUM(cart_items.profit) as total_profit'))
             ->where('customer_id', auth()->guard('customer')->user()->id);
 
         $this->setQueryBuilder($queryBuilder);
@@ -69,6 +69,18 @@ class OrderDataGrid extends DataGrid
             'filterable' => true,
             'closure'    => function ($value) {
                 return core()->formatPrice($value->grand_total, $value->order_currency_code);
+            },
+        ]);
+
+        $this->addColumn([
+            'index'      => 'total_profit',
+            'label'      => trans('shop::app.customer.account.order.index.total_profit'),
+            'type'       => 'number',
+            'searchable' => true,
+            'sortable'   => true,
+            'filterable' => true,
+            'closure'    => function ($value) {
+                return core()->formatPrice($value->total_profit, $value->order_currency_code);
             },
         ]);
 

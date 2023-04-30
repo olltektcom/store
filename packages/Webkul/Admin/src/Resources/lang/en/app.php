@@ -262,6 +262,7 @@ return [
         'file-name'        => 'File Name',
         'path'             => 'Path',
         'link-for-google'  => 'Link For Google',
+        'total_profit'     => 'Total profit',
     ],
 
     'account' => [
@@ -738,6 +739,10 @@ return [
             'image-size'               => 'Image resolution should be like 300px X 168px',
             'image-size-logo'          => 'Image resolution should be like 20px X 20px',
             'mass-update-success'      => 'All the selected categories have been updated successfully',
+        ],
+
+        'balances' => [
+            'title' => 'Balances',
         ],
     ],
 
@@ -1680,5 +1685,12 @@ return [
             'processing' => 'Order Processing',
             'pending_payment' => 'Pending Payment',
         ],
+    ],
+
+    'profit' => [
+        'first_name' => 'First name',
+        'email' => 'Email',
+        'phone' => 'Phone',
+        'total_profit' => 'Total profit',
     ],
 ];
