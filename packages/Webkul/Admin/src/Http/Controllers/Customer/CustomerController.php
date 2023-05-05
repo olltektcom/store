@@ -134,7 +134,7 @@ class CustomerController extends Controller
         ]);
 
         Event::dispatch('customer.update.before', $id);
-        
+
         $customer = $this->customerRepository->update(array_merge(request()->all(), [
             'status'       => request()->has('status'),
             'is_suspended' => request()->has('is_suspended'),
@@ -245,7 +245,7 @@ class CustomerController extends Controller
         if (! $this->customerRepository->checkBulkCustomerIfTheyHaveOrderPendingOrProcessing($customerIds)) {
             foreach ($customerIds as $customerId) {
                 Event::dispatch('customer.delete.before', $customerId);
-                
+
                 $this->customerRepository->delete($customerId);
 
                 Event::dispatch('customer.delete.after', $customerId);

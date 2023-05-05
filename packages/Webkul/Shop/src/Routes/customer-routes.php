@@ -9,6 +9,7 @@ use Webkul\Customer\Http\Controllers\RegistrationController;
 use Webkul\Customer\Http\Controllers\ResetPasswordController;
 use Webkul\Customer\Http\Controllers\SessionController;
 use Webkul\Customer\Http\Controllers\WishlistController;
+use Webkul\Shop\Http\Controllers\BalanceController;
 use Webkul\Shop\Http\Controllers\DownloadableProductController;
 use Webkul\Shop\Http\Controllers\OrderController;
 use Webkul\Shop\Http\Controllers\ReviewController;
@@ -133,6 +134,13 @@ Route::group(['middleware' => ['web', 'locale', 'theme', 'currency']], function 
                     Route::post('profile/destroy', [CustomerController::class, 'destroy'])->defaults('_config', [
                         'redirect' => 'customer.profile.index',
                     ])->name('customer.profile.destroy');
+
+                    /**
+                     * Balance.
+                     */
+                    Route::get('balance', [BalanceController::class, 'index'])->defaults('_config', [
+                        'view' => 'shop::customers.account.balance.index',
+                    ])->name('customer.balance.index');
 
                     /**
                      * Addresses.

@@ -20,9 +20,9 @@
 
         <div class="account-items-list">
             <div class="account-table-content">
-                
+
                 <datagrid-plus src="{{ route('customer.orders.index') }}"></datagrid-plus>
-                
+
             </div>
         </div>
 

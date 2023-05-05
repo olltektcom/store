@@ -1692,5 +1692,6 @@ return [
         'email' => 'Email',
         'phone' => 'Phone',
         'total_profit' => 'Total profit',
+        'status' => 'Status',
     ],
 ];

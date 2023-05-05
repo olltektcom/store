@@ -25,6 +25,7 @@
 
                 try {
                     $subMenuCollection['profile'] = $menuItem['children']['profile'];
+                    $subMenuCollection['balance'] = $menuItem['children']['balance'];
                     $subMenuCollection['orders'] = $menuItem['children']['orders'];
                     $subMenuCollection['downloadables'] = $menuItem['children']['downloadables'];
 
@@ -41,6 +42,7 @@
 
                     unset(
                         $menuItem['children']['profile'],
+                        $menuItem['children']['balance'],
                         $menuItem['children']['orders'],
                         $menuItem['children']['downloadables'],
                         $menuItem['children']['wishlist'],
@@ -58,13 +60,15 @@
             @endphp
 
             @foreach ($subMenuCollection as $index => $subMenuItem)
+
                 <li class="{{ $menu->getActive($subMenuItem) }}" title="{{ trans($subMenuItem['name']) }}">
                     <a class="unset fw6 full-width" href="{{ $subMenuItem['url'] }}">
-                        <i class="icon {{ $index }} text-down-3"></i>
-                        <span>{{ trans($subMenuItem['name']) }}<span>
+                        <i class="icon {{ $index }} {{$index == 'balance' ? 'compare' : ''}} text-down-3"></i>
+                        <span>{{ trans($subMenuItem['name']) }} <span>
                         <i class="rango-arrow-right float-right text-down-3"></i>
                     </a>
                 </li>
+
             @endforeach
         </ul>
     @endforeach

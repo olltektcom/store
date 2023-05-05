@@ -93,7 +93,7 @@ import DatagridPagination from './partials/datagrid-pagination';
 import DatagridTable from './partials/datagrid-table';
 
 export default {
-    props: ['src'],
+    props: ['src', 'key'],
 
     components: {
         ColumnFilter,
@@ -122,6 +122,9 @@ export default {
 
     mounted: function () {
         this.makeURL();
+        if(this.key) {
+            this.makeURL();
+        }
     },
 
     methods: {
@@ -456,7 +459,7 @@ export default {
                 }
             }
         },
-        
+
         clearAllFilters() {
             this.filters = [];
 
