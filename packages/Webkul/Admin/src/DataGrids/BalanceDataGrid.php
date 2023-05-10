@@ -22,14 +22,14 @@ class BalanceDataGrid extends DataGrid
                     ->join('cart', 'orders.cart_id', '=', 'cart.id')
                     ->join('cart_items', 'cart.id', '=', 'cart_items.cart_id')
                     ->where('orders.status', '=', Order::STATUS_COMPLETED)
-                    ->where('orders.created_at', '<=', DB::raw('DATE_SUB(NOW(), INTERVAL 14 DAY)'))
+                    ->where('orders.created_at', '>', DB::raw('DATE_SUB(NOW(), INTERVAL 14 DAY)'))
                     ->groupBy('customers.id');
             }else {
                 $queryBuilder = Customer::select('customers.id', 'customers.first_name', 'customers.email', 'customers.phone', 'orders.status',DB::raw('SUM(cart_items.profit) as total_profit'))
                     ->join('orders', 'customers.id', '=', 'orders.customer_id')
                     ->join('cart', 'orders.cart_id', '=', 'cart.id')
                     ->join('cart_items', 'cart.id', '=', 'cart_items.cart_id')
-                    ->where('orders.status', '=', Order::STATUS_PENDING)
+                    ->where('orders.status', '=', Order::STATUS_COMPLETED)
                     ->orWhere('orders.created_at', '<=', DB::raw('DATE_SUB(NOW(), INTERVAL 14 DAY)'))
                     ->groupBy('customers.id');
             }

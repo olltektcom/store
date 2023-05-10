@@ -13,7 +13,8 @@
                             Redeem Balance
                             </button>
                             <button type="button" @click="toggleTable('out')"  class="btn btn-secondary ml-2" data-bs-toggle="modal" data-bs-target="#exampleModal">
-                            Display Details
+                                <span v-if="selectedCard != 'out'">Display details</span>
+                                <span v-else>Hide details</span>
                             </button>
                         </div>
                     </div>
@@ -31,8 +32,10 @@
 
                         <div>
                             <button type="button" @click="toggleTable('pending')" class="btn btn-secondary ml-2" data-bs-toggle="modal" data-bs-target="#exampleModal">
-                            Display Details
+                                <span v-if="selectedCard != 'pending'">Display details</span>
+                                <span v-else>Hide details</span>
                             </button>
+
                         </div>
                     </div>
                     <div class="card-body">
