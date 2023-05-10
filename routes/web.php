@@ -1,5 +1,7 @@
 <?php
 
+use MagedAhmad\Aymakan\Facades\Aymakan;
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -10,3 +12,10 @@
 | contains the "web" middleware group. Now create something great!
 |
 */
+
+
+Route::get('aymakan', function() {
+    $response = Aymakan::pingApi();
+    // $response = Aymakan::getCityList();
+    return $response;
+});

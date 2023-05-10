@@ -3,7 +3,7 @@
         'name' => 'magedahmed/aymakan',
         'pretty_version' => 'dev-main',
         'version' => 'dev-main',
-        'reference' => '12d0570bc2e057b1f355d2e2504ebbd4d7f5e2ed',
+        'reference' => '2b462ddf4dbd98a7882bfb415f3b4186e589bf7f',
         'type' => 'library',
         'install_path' => __DIR__ . '/../../',
         'aliases' => array(),
@@ -24,7 +24,7 @@
         'magedahmed/aymakan' => array(
             'pretty_version' => 'dev-main',
             'version' => 'dev-main',
-            'reference' => '12d0570bc2e057b1f355d2e2504ebbd4d7f5e2ed',
+            'reference' => '2b462ddf4dbd98a7882bfb415f3b4186e589bf7f',
             'type' => 'library',
             'install_path' => __DIR__ . '/../../',
             'aliases' => array(),

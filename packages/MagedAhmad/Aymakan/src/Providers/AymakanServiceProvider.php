@@ -3,6 +3,8 @@
 namespace MagedAhmad\Aymakan\Providers;
 
 use Illuminate\Support\ServiceProvider;
+use MagedAhmad\Aymakan\Services\AymakanService;
+use MagedAhmad\Aymakan\Controllers\AymakanController;
 
 class AymakanServiceProvider extends ServiceProvider
 {
@@ -24,7 +26,7 @@ class AymakanServiceProvider extends ServiceProvider
     {
         $this->registerConfig();
     }
-    
+
     /**
      * Register package config.
      *
@@ -33,11 +35,15 @@ class AymakanServiceProvider extends ServiceProvider
     protected function registerConfig()
     {
         $this->mergeConfigFrom(
-            dirname(__DIR__) . '/Config/carriers.php', 'carriers'
+            dirname(__DIR__) . '/Config/carriers.php', 'aymakan'
         );
 
         $this->mergeConfigFrom(
             dirname(__DIR__) . '/Config/system.php', 'core'
         );
+
+        $this->app->singleton('aymakan', function () {
+            return new AymakanController(new AymakanService());
+        });
     }
 }
