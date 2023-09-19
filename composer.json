@@ -107,7 +107,10 @@
             "Webkul\\Marketing\\": "packages/Webkul/Marketing/src",
             "Webkul\\Notification\\": "packages/Webkul/Notification/src",
             "Webkul\\Sitemap\\": "packages/Webkul/Sitemap/src",
-            "MagedAhmad\\Aymakan\\": "packages/MagedAhmad/Aymakan/src"
+            "MagedAhmad\\Aymakan\\": "packages/MagedAhmad/Aymakan/src",
+            "Rastventure\\Core\\": "packages/Rastventure/Core/src",
+            "Rastventure\\Bookingproduct\\": "packages/Rastventure/Bookingproduct/src",
+            "Rastventure\\RecentlyPurchased\\": "packages/Rastventure/RecentlyPurchased/src"
         }
     },
     "autoload-dev": {

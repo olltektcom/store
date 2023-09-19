@@ -286,6 +286,9 @@ return [
         Webkul\Notification\Providers\NotificationServiceProvider::class,
         Webkul\Sitemap\Providers\SitemapServiceProvider::class,
         AymakanServiceProvider::class,
+        Rastventure\Core\Providers\CoreServiceProvider::class,
+        Rastventure\Bookingproduct\Providers\BookingproductServiceProvider::class,
+        Rastventure\RecentlyPurchased\Providers\RecentlyPurchasedServiceProvider::class,
     ],
 
     /*

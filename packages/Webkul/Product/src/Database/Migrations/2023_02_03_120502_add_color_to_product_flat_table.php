@@ -14,8 +14,7 @@ class AddColorToProductFlatTable extends Migration
     public function up()
     {
         Schema::table('product_flat', function (Blueprint $table) {
-            $table->integer('color')->nullable();
-            $table->string('color_label')->nullable();
+            // $table->string('color_label')->nullable();
         });
     }
 

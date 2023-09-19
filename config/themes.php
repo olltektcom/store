@@ -23,6 +23,12 @@ return [
             'name' => 'Velocity',
             'parent' => 'default'
         ],
+        'faSHən' => [
+            'views_path' => 'resources/themes/faSHən/views',
+            'assets_path' => 'public/themes/faSHən/assets',
+            'name' => 'faSHən',
+            'parent' => 'default'
+        ]
     ],
 
     'admin-default' => 'default',

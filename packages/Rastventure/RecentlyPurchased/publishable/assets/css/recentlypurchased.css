@@ -1,0 +1,46 @@
+@charset "UTF-8";
+.recently-purchase {
+  background: #fff;
+  border: 0;
+  border-radius: 0;
+  bottom: -150px;
+  left: 20px;
+  padding: 0;
+  position: fixed;
+  text-align: left;
+  width: auto;
+  z-index: 9;
+  -webkit-box-shadow: 0 0 4px 0 #d0d0d0;
+          box-shadow: 0 0 4px 0 #d0d0d0;
+  padding: 5px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-transition: all 0.6s ease;
+  transition: all 0.6s ease; 
+  opacity:0;
+ }
+  .recently-purchase .close-popup {
+    position: absolute;
+    right: 7px;
+    top: 6px;
+    opacity: 0.5;
+    color: black; }
+  .recently-purchase .media-body {
+    padding: 0 30px 0 12px; }
+    .recently-purchase .media-body .title {
+      font-weight: 600; }
+    .recently-purchase .media-body .product-name {
+      color: var(--theme-deafult); }
+    .recently-purchase .media-body .timeAgo {
+      display: block; }
+  .recently-purchase.show {
+    bottom: 20px;
+    -webkit-transition: all 0.6s ease;
+    transition: all 0.6s ease;
+	opacity:1;
+   }
+
