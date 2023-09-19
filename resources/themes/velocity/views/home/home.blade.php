@@ -1,480 +1,109 @@
 <!DOCTYPE html>
-<html lang="en">
-	<head>
-		<meta charset="UTF-8">
-		<meta name="keywords" content="Digital marketing agency, Digital marketing company, Digital marketing services, sass, software company">
-		<meta name="description" content="OllTek is a comprehensive E-commerce solution (Selling platform, Inventory Management, Payments, Shipping, and Marketing.">
-      	<meta property="og:site_name" content="OllTek">
-      	<meta property="og:url" content="https://olltek.com/">
-      	<meta property="og:type" content="website">
-      	<meta property="og:title" content="Deski: creative saas and software html template">
-		<meta name='og:image' content='images/assets/ogg.png'>
-		<!-- For IE -->
-		<meta http-equiv="X-UA-Compatible" content="IE=edge">
-		<!-- For Resposive Device -->
-		<meta name="viewport" content="width=device-width, initial-scale=1.0">
-		<!-- For Window Tab Color -->
-		<!-- Chrome, Firefox OS and Opera -->
-		<meta name="theme-color" content="#2a2a2a">
-		<!-- Windows Phone -->
-		<meta name="msapplication-navbutton-color" content="#2a2a2a">
-		<!-- iOS Safari -->
-		<meta name="apple-mobile-web-app-status-bar-style" content="#2a2a2a">
-		<title>OllTek E-commerce Platform</title>
-		<!-- Favicon -->
-		<link rel="icon" type="image/png" sizes="56x56" href="{{ asset('themes/deski') }}/images/fav-icon/olltekfav.png">
-		<!-- Main style sheet -->
-		<link rel="stylesheet" type="text/css" href="{{ asset('themes/deski') }}/css/style.css">
-		<!-- responsive style sheet -->
-		<link rel="stylesheet" type="text/css" href="{{ asset('themes/deski') }}/css/responsive.css">
+<html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Ollsell store</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body>
+    <section class="w-full px-6 pb-12 antialiased bg-white dark:bg-slate-900">
+        <div class="absolute inset-0 text-slate-900/[0.07] [mask-image:linear-gradient(to_bottom_left,white,transparent,transparent)]">
+          <svg class="absolute inset-0 h-full w-full" xmlns="http://www.w3.org/2000/svg">
+             <defs>
+                <pattern id="grid-bg" width="32" height="32" patternUnits="userSpaceOnUse" x="100%" patternTransform="translate(0 -1)">
+                   <path d="M0 32V.5H32" fill="none" stroke="currentColor"></path>
+                </pattern>
+             </defs>
+             <rect width="100%" height="100%" fill="url(#grid-bg)"></rect>
+          </svg>
+        </div>
+        <div class="mx-auto max-w-7xl">
+            @include('shop::layouts.header.home_nav')
 
-		<!-- Fix Internet Explorer ______________________________________-->
-		<!--[if lt IE 9]>
-			<script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
-			<script src="vendor/html5shiv.js"></script>
-			<script src="vendor/respond.js"></script>
-		<![endif]-->	
-	</head>
+            <!-- Main Hero Content -->
+            <div class="container max-w-lg px-4 py-32 mx-auto mt-px text-left md:max-w-none md:text-center">
+                <h1 class="text-5xl font-extrabold leading-10 tracking-tight text-left text-gray-900 md:text-center sm:leading-none md:text-6xl lg:text-7xl dark:text-gray-200"><span class="inline md:block">We offer full solution</span> <span class="relative mt-2 text-transparent bg-clip-text bg-gradient-to-br from-indigo-600 to-indigo-500 md:inline-block">For Dropshippers</span></h1>
+                <div class="mx-auto mt-5 text-gray-500 md:mt-12 md:max-w-lg md:text-center lg:text-lg dark:text-gray-200">
+                    A Platform that provides integrated services to the merchant with full control over profits.
+                </div>
+                <div class="flex flex-col items-center mt-12 text-center">
+                    @if (!Auth::check())
+                        <span class="relative inline-flex w-full md:w-auto">
+                            <a href="/customer/register" type="button" class="inline-flex items-center justify-center w-full px-8 py-4 text-base font-bold leading-6 text-white bg-indigo-600 border border-transparent rounded-full md:w-auto hover:bg-indigo-500 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-600">Start Dropshipping</a>
+                            <span class="absolute top-0 right-0 px-2 py-1 -mt-3 -mr-6 text-xs font-medium leading-tight text-white bg-green-400 rounded-full">Try for free</span>
+                        </span>
+                    @else
+                        <span class="relative inline-flex w-full md:w-auto">
+                            <a href="/" type="button" class="inline-flex items-center justify-center w-full px-8 py-4 text-base font-bold leading-6 text-white bg-indigo-600">
+                                Go to store
+                            </a>
+                        </span>
+                    @endif
+                </div>
+            </div>
+        </div>
+        <!-- End Main Hero Content -->
 
-	<body data-spy="scroll" data-target="#one-page-nav" data-offset="120">
-		<div class="main-page-wrapper p0 font-gordita">
-			<!-- ===================================================
-				Loading Transition
-			==================================================== -->
-			<section>
-				<div id="preloader">
-					<div id="ctn-preloader" class="ctn-preloader">
-						<div class="animation-preloader">
-							<div class="spinner"></div>
-							<div class="txt-loading">
-								<span data-text-preloader="O" class="letters-loading">
-									O
-								</span>
-								<span data-text-preloader="L" class="letters-loading">
-									L
-								</span>
-								<span data-text-preloader="L" class="letters-loading">
-									L
-								</span>
-								<span data-text-preloader="T" class="letters-loading">
-									T
-								</span>
-								<span data-text-preloader="E" class="letters-loading">
-									E
-								</span>
-								<span data-text-preloader="K" class="letters-loading">
-									K
-								</span>	
-							</div>
-						</div>	
-					</div>
-				</div>
-			</section>
+    </div>
+  </section>
+  <section class="pt-10 pb-20 bg-white tails-selected-element dark:bg-slate-900" id="features">
+    <div class="container max-w-6xl mx-auto">
+        <h2 class="text-4xl font-bold tracking-tight text-center text-gray-600 dark:text-gray-200">Our Features</h2>
+        <p class="mt-2 text-lg text-center text-gray-600 dark:text-gray-200">Check out our list of awesome features below.</p>
+        <div class="grid grid-cols-4 gap-8 mt-10 sm:grid-cols-8 lg:grid-cols-12 sm:px-8 xl:px-0">
 
+            <div class="relative flex flex-col items-center justify-between col-span-4 px-8 py-12 space-y-4 overflow-hidden bg-gray-100 sm:rounded-xl" data-rounded="rounded-xl" data-rounded-max="rounded-full">
+                <div class="p-3 text-white bg-blue-500 rounded-full" data-primary="blue-500" data-rounded="rounded-full">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="w-8 h-8 " viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z" fill="none"></path><path d="M14 3v4a1 1 0 0 0 1 1h4"></path><path d="M5 8v-3a2 2 0 0 1 2 -2h7l5 5v11a2 2 0 0 1 -2 2h-5"></path><circle cx="6" cy="14" r="3"></circle><path d="M4.5 17l-1.5 5l3 -1.5l3 1.5l-1.5 -5"></path></svg>
+                </div>
+                <h4 class="text-xl font-medium text-gray-700">Master Catalog</h4>
+                <p class="text-base text-center text-gray-500">It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout.</p>
+            </div>
 
-			<!-- 
-			=============================================
-				Theme Main Menu
-			============================================== 
-			-->
-			<div class="theme-main-menu sticky-menu theme-menu-seven bg-none">
-				<div class="d-flex align-items-center justify-content-between">
-					<div class="logo order-lg-1"><a href="index.html"><img src="{{ asset('themes/deski') }}/images/logo/ollteklogoby.png" alt=""></a></div>
+            <div class="flex flex-col items-center justify-between col-span-4 px-8 py-12 space-y-4 bg-gray-100 sm:rounded-xl" data-rounded="rounded-xl" data-rounded-max="rounded-full">
+                <div class="p-3 text-white bg-blue-500 rounded-full" data-primary="blue-500" data-rounded="rounded-full">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="w-8 h-8 " viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z" fill="none"></path><path d="M18 8a3 3 0 0 1 0 6"></path><path d="M10 8v11a1 1 0 0 1 -1 1h-1a1 1 0 0 1 -1 -1v-5"></path><path d="M12 8h0l4.524 -3.77a0.9 .9 0 0 1 1.476 .692v12.156a0.9 .9 0 0 1 -1.476 .692l-4.524 -3.77h-8a1 1 0 0 1 -1 -1v-4a1 1 0 0 1 1 -1h8"></path></svg>
+                </div>
+                <h4 class="text-xl font-medium text-gray-700">AyMakan shipping</h4>
+                <p class="text-base text-center text-gray-500">It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout.</p>
+            </div>
 
-					<div class="right-widget order-lg-3">
-						<ul  class="d-flex align-items-center">
+            <div class="flex flex-col items-center justify-between col-span-4 px-8 py-12 space-y-4 bg-gray-100 sm:rounded-xl" data-rounded="rounded-xl" data-rounded-max="rounded-full">
+                <div class="p-3 text-white bg-blue-500 rounded-full" data-primary="blue-500" data-rounded="rounded-full">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="w-8 h-8 " viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z" fill="none"></path><polyline points="12 3 20 7.5 20 16.5 12 21 4 16.5 4 7.5 12 3"></polyline><line x1="12" y1="12" x2="20" y2="7.5"></line><line x1="12" y1="12" x2="12" y2="21"></line><line x1="12" y1="12" x2="4" y2="7.5"></line><line x1="16" y1="5.25" x2="8" y2="9.75"></line></svg>
+                </div>
+                <h4 class="text-xl font-medium text-gray-700">Easy payment</h4>
+                <p class="text-base text-center text-gray-500">It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout.</p>
+            </div>
 
-							<li>
-								<a href="/customer/register" class="theme-btn-twelve d-none d-lg-block">Join now!</a>
-							</li>
-						</ul>
-					</div>
+            <div class="flex flex-col items-center justify-between col-span-4 px-8 py-12 space-y-4 bg-gray-100 sm:rounded-xl" data-rounded="rounded-xl" data-rounded-max="rounded-full">
+                <div class="p-3 text-white bg-blue-500 rounded-full" data-primary="blue-500" data-rounded="rounded-full">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="w-8 h-8 " viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z" fill="none"></path><path d="M8 9l3 3l-3 3"></path><line x1="13" y1="15" x2="16" y2="15"></line><rect x="3" y="4" width="18" height="16" rx="2"></rect></svg>
+                </div>
+                <h4 class="text-xl font-medium text-gray-700">Ecommerce integrations</h4>
+                <p class="text-base text-center text-gray-500">It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout.</p>
+            </div>
 
-					<nav id="mega-menu-holder" class="navbar navbar-expand-lg pl-xl-5 ml-xl-5 order-lg-2">
-						<div  class="nav-container">
-							<button class="navbar-toggler">
-						        <span></span>
-						    </button>
-						   <div class="navbar-collapse collapse" id="navbarSupportedContent">
-						   		<div class="d-lg-flex justify-content-between align-items-center">
-						   			<ul class="navbar-nav main-side-nav font-gordita" id="one-page-nav">
-						   				<li class="nav-item dropdown position-static">
-								            	<a href="#home" class="nav-link">Home</a>
+            <div class="flex flex-col items-center justify-between col-span-4 px-8 py-12 space-y-4 bg-gray-100 sm:rounded-xl" data-rounded="rounded-xl" data-rounded-max="rounded-full">
+                <div class="p-3 text-white bg-blue-500 rounded-full" data-primary="blue-500" data-rounded="rounded-full">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="w-8 h-8 " viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z" fill="none"></path><line x1="9.5" y1="11" x2="9.51" y2="11"></line><line x1="14.5" y1="11" x2="14.51" y2="11"></line><path d="M9.5 15a3.5 3.5 0 0 0 5 0"></path><path d="M7 5h1v-2h8v2h1a3 3 0 0 1 3 3v9a3 3 0 0 1 -3 3v1h-10v-1a3 3 0 0 1 -3 -3v-9a3 3 0 0 1 3 -3"></path></svg>
+                </div>
+                <h4 class="text-xl font-medium text-gray-700">Online Wallet</h4>
+                <p class="text-base text-center text-gray-500">It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout.</p>
+            </div>
 
-								        </li>
-						   				<li class="nav-item">
-						   					<a href="#feature" class="nav-link">Features</a>
-						   				</li>
-						   				<li class="nav-item">
-						   					<a href="#discover" class="nav-link">Discover</a>
-						   				</li>
+            <div class="flex flex-col items-center justify-between col-span-4 px-8 py-12 space-y-4 bg-gray-100 sm:rounded-xl" data-rounded="rounded-xl" data-rounded-max="rounded-full">
+                <div class="p-3 text-white bg-blue-500 rounded-full" data-primary="blue-500" data-rounded="rounded-full">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="w-8 h-8 " viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z" fill="none"></path><line x1="15" y1="5" x2="15" y2="7"></line><line x1="15" y1="11" x2="15" y2="13"></line><line x1="15" y1="17" x2="15" y2="19"></line><path d="M5 5h14a2 2 0 0 1 2 2v3a2 2 0 0 0 0 4v3a2 2 0 0 1 -2 2h-14a2 2 0 0 1 -2 -2v-3a2 2 0 0 0 0 -4v-3a2 2 0 0 1 2 -2"></path></svg>
+                </div>
+                <h4 class="text-xl font-medium text-gray-700">Coupons</h4>
+                <p class="text-base text-center text-gray-500">Coupons system to provide special offers and discounts for your app.</p>
+            </div>
 
-								   </ul>
-						   		</div>
-						   	</div>
-						</div> 
-					</nav>
-				</div>
-			</div> <!-- /.theme-main-menu -->
-
-
-			
-			<!-- 
-			=============================================
-				Theme Hero Banner
-			============================================== 
-			-->
-			<div class="hero-banner-twelve lg-container" id="home">
-				<div class="container">
-					<div class="row">
-						<div class="col-xl-11 col-lg-12 col-md-10 m-auto text-center">
-						    <h1 class="hero-heading font-gordita">Empower Your <span style="color:#63b393;">Business </span>with </br> Seamless <span style="color:#63b393;"> E-commerce Solutions.</span></h1>
-							<p class="hero-sub-heading">Build your business here. Take it anywhere.</p>
-							<a href="/customer/register" class="get-start-btn">Join the waitlist now <i class="fa fa-angle-right ml-1" aria-hidden="true"></i></a>
-						</div>
-					</div>
-
-					<div class="screen-holder">
-						<img src="{{ asset('themes/deski') }}/images/assets/screen_32.png" alt="" class="img-meta">
-						<img src="{{ asset('themes/deski') }}/images/assets/global-sections-wraps.webp" alt="" class="shapes screen-one">
-						<img src="{{ asset('themes/deski') }}/images/assets/design-elements-800x519.webp" alt="" class="shapes screen-two">
-						<img src="{{ asset('themes/deski') }}/images/shape/230.svg" alt="" class="shapes shape-one">
-						<img src="{{ asset('themes/deski') }}/images/shape/231.svg" alt="" class="shapes shape-two">
-					</div> <!-- /.screen-holder -->
-				</div>
-				<img src="{{ asset('themes/deski') }}/images/shape/232.svg" alt="" class="shapes shape-three">
-				<img src="{{ asset('themes/deski') }}/images/shape/233.svg" alt="" class="shapes shape-four">
-				<img src="{{ asset('themes/deski') }}/images/shape/234.svg" alt="" class="shapes shape-five">
-				<img src="{{ asset('themes/deski') }}/images/shape/235.svg" alt="" class="shapes shape-six">
-				<img src="{{ asset('themes/deski') }}/images/shape/236.svg" alt="" class="shapes shape-seven">
-				<img src="{{ asset('themes/deski') }}/images/shape/232.svg" alt="" class="shapes shape-eight">
-			</div> <!-- /.hero-banner-twelve -->
-
-			
-
-			<!-- 
-			=============================================
-				Counter Style Three
-			============================================== 
-			-->
-
-			
-
-
-			
-			<!--
-			=====================================================
-				Fancy Feature Seventeen
-			=====================================================
-			-->
-			<div class="fancy-feature-seventeen lg-container mt-150 md-mt-90" id="feature">
-				<div class="container">
-					<div class="row">
-						<div class="col-lg-10 m-auto">
-							<div class="title-style-thirteen text-center mb-130 md-mb-90">
-								<div class="upper-title">Features</div>
-								<h2> We’ve ton of features that provide with
-									<span>the best store<img src="{{ asset('themes/deski') }}/images/shape/line-shape-14.svg" alt=""></span>
-								</h2>
-							</div>
-						</div>
-					</div>
-				</div>
-				<div class="container">
-					<div class="bottom-border pb-50">
-						<div class="row">
-							<div class="col-lg-4 col-sm-6" data-aos="fade-up" data-aos-duration="1200">
-								<div class="block-meta">
-									<div class="icon d-flex align-items-end"><img src="{{ asset('themes/deski') }}/images/icon/94.svg" alt=""></div>
-									<h4> Drag and Drop Interface</h4>
-									<p>Enjoy ultimate creative control with our drag and drop customization tools.</p>
-								</div> <!-- /.block-meta -->
-							</div>
-							<div class="col-lg-4 col-sm-6" data-aos="fade-up" data-aos-duration="1200" data-aos-delay="100">
-								<div class="block-meta">
-									<div class="icon d-flex align-items-end"><img src="{{ asset('themes/deski') }}/images/icon/95.svg" alt=""></div>
-									<h4>Marketing Tools</h4>
-									<p>Run targeted marketing campaigns and track performance with detailed analytics.</p>
-								</div> <!-- /.block-meta -->
-							</div>
-							<div class="col-lg-4 col-sm-6" data-aos="fade-up" data-aos-duration="1200" data-aos-delay="200">
-								<div class="block-meta">
-									<div class="icon d-flex align-items-end"><img src="{{ asset('themes/deski') }}/images/icon/96.svg" alt=""></div>
-									<h4>Secure Payment Processing</h4>
-									<p>Ensure trust and security with our secure payment gateways.</p>
-								</div> <!-- /.block-meta -->
-							</div>
-							<div class="col-lg-4 col-sm-6" data-aos="fade-up" data-aos-duration="1200">
-								<div class="block-meta">
-									<div class="icon d-flex align-items-end"><img src="{{ asset('themes/deski') }}/images/icon/97.svg" alt=""></div>
-									<h4>Reporting and Insights</h4>
-									<p>Dive deep into your business's performance with advanced reporting and insights.</p>
-								</div> <!-- /.block-meta -->
-							</div>
-							<div class="col-lg-4 col-sm-6" data-aos="fade-up" data-aos-duration="1200" data-aos-delay="100">
-								<div class="block-meta">
-									<div class="icon d-flex align-items-end"><img src="{{ asset('themes/deski') }}/images/icon/98.svg" alt=""></div>
-									<h4>Product Catalog</h4>
-									<p>Streamline inventory control, bulk uploads, and presentation for an engaging shopping experience.</p>
-								</div> <!-- /.block-meta -->
-							</div>
-							<div class="col-lg-4 col-sm-6" data-aos="fade-up" data-aos-duration="1200" data-aos-delay="200">
-								<div class="block-meta">
-									<div class="icon d-flex align-items-end"><img src="{{ asset('themes/deski') }}/images/icon/99.svg" alt=""></div>
-									<h4>24/7 Customer Support </h4>
-									<p>Get assistance whenever you need it from our dedicated support team.</p>
-								</div> <!-- /.block-meta -->
-							</div>
-						</div>
-					</div>
-				</div>
-			</div> <!-- /.fancy-feature-seventeen -->
-
-
-
-			<!-- 
-			=============================================
-				Fancy Feature Twenty Nine
-			============================================== 
-			-->
-			<div class="fancy-feature-twentyNine lg-container mt-150 pt-20 md-mt-70" id="p-tour">
-				<div class="container">
-					<div class="block-style-thirty bottom-border pb-80 mb-170 md-pb-40 md-mb-90">
-						<div class="row">
-							<div class="col-xl-5 col-lg-6">
-								<div class="text-block md-pb-60">
-									<div class="feature">DRAG & DROP</div>
-									<div class="title-style-nine mb-60 md-mb-40">
-										<h2>Sell with Style: Effortless Design</h2>
-									</div>
-									<ul class="feature-list-one">
-										<li>
-											<img src="{{ asset('themes/deski') }}/images/icon/157.svg" alt="" class="icon">
-											<strong>Easy Storefront Design</strong>
-											<span>Design your store effortlessly with our intuitive drag and drop interface.</span>
-										</li>
-										<li>
-											<img src="{{ asset('themes/deski') }}/images/icon/158.svg" alt="" class="icon">
-											<strong>Code-Free Customization</strong>
-											<span>Customize your website layout, product pages, and more without any coding.</span>
-										</li>
-										<li>
-											<img src="{{ asset('themes/deski') }}/images/icon/159.svg" alt="" class="icon">
-											<strong>Diverse Theme Selection</strong>
-											<span>Elevate your store's appearance with a variety of stunning themes to choose from.</span>
-										</li>
-										
-									</ul>
-								</div> <!-- /.text-block -->
-							</div>
-							<div class="col-xl-7 col-lg-6">
-								<img src="{{ asset('themes/deski') }}/images/assets/layouts.webp" alt="">
-							</div>
-						</div>
-					</div> <!-- /.block-style-thirty -->
-					<div class="block-style-thirty">
-						<div class="row">
-							<div class="col-xl-5 col-lg-6 order-lg-last">
-								<div class="text-block md-pb-60">
-									<div class="feature">MARKETING TOOLS</div>
-									<div class="title-style-nine mb-45 md-mb-30">
-										<h2>Comprehensive Marketing Toolkit</h2>
-									</div>
-									<p>Elevate Your E-Commerce Brand with a Suite of Powerful Marketing Tools</p>
-									<ul class="feature-list-two">
-										<li>
-											Design and send targeted <span>email campaigns</span> for customer engagement, product promotions, and cart recovery.
-										</li>
-										<li>
-											Boost sales and customer loyalty with compelling <span>loyalty program</span> rewards, all managed within your platform.
-										</li>
-										<li>
-											Create and manage gift cards, discounts, and <span>coupons</span> to boost sales.
-										</li>
-									</ul>
-								
-								</div> <!-- /.text-block -->
-							</div>
-							<div class="col-xl-7 col-lg-6 order-lg-first">
-								<img src="{{ asset('themes/deski') }}/images/assets/screen_36.png" alt="">
-							</div>
-						</div>
-					</div> <!-- /.block-style-thirty -->
-
-					
-
-					
-				</div>
-			</div> <!-- /.fancy-feature-twentyNine -->
-
-
-			<!-- 
-			=============================================
-				Fancy Feature Thirty
-			============================================== 
-			-->
-			<div class="fancy-feature-thirty mt-180 md-mt-100" id="discover">
-				<div class="container">
-					<div class="row">
-						<div class="col-xl-10 col-lg-9 m-auto">
-							<div class="title-style-thirteen text-center mb-80 md-mb-60">
-								<div class="upper-title">More Features</div>
-								<h2> Maximize Revenue with Our
-									<span>Sales-Boosting <img src="{{ asset('themes/deski') }}/images/shape/line-shape-14.svg" alt=""></span>
-									Features.
-								</h2>
-							</div>
-						</div>
-					</div>
-				</div>
-				<div class="wrapper">
-					<div class="container">
-						<div class="row">
-							<div class="col-md-6" data-aos="fade-up">
-								<div class="block-style-thirtyTwo d-flex">
-									<div class="icon d-flex align-items-center justify-content-center" style="background:#D8FFF1;"><img src="{{ asset('themes/deski') }}/images/icon/167.svg" alt=""></div>
-									<div class="text">
-										<h4>One-Click Checkout</h4>
-										<p>Simplify shopping with our One-Click Checkout feature. Reduce steps, and increase conversions with a single click.</p>
-									
-									</div>
-								</div> <!-- /.block-style-thirtyTwo -->
-							</div>
-							<div class="col-md-6" data-aos="fade-up" data-aos-delay="100">
-								<div class="block-style-thirtyTwo d-flex">
-									<div class="icon d-flex align-items-center justify-content-center" style="background:#F7EDFF;"><img src="{{ asset('themes/deski') }}/images/icon/166.svg" alt=""></div>
-									<div class="text">
-										<h4>Loyalty Program</h4>
-										<p>Increase customer loyalty with customizable rewards and automated management, driving repeat business and insights into program performance.</p>
-										
-									</div>
-								</div> <!-- /.block-style-thirtyTwo -->
-							</div>
-							<div class="col-md-6" data-aos="fade-up">
-								<div class="block-style-thirtyTwo d-flex">
-									<div class="icon d-flex align-items-center justify-content-center" style="background:#FFEBDB;"><img src="{{ asset('themes/deski') }}/images/icon/169.svg" alt=""></div>
-									<div class="text">
-										<h4>SEO Optimization</h4>
-										<p>Improve your store's visibility in search engine results with our built-in SEO optimization tools. Enhance your online presence and attract more visitors.</p>
-									
-									</div>
-								</div> <!-- /.block-style-thirtyTwo -->
-							</div>
-							<div class="col-md-6" data-aos="fade-up" data-aos-delay="100">
-								<div class="block-style-thirtyTwo d-flex">
-									<div class="icon d-flex align-items-center justify-content-center" style="background:#E6FBFF;"><img src="{{ asset('themes/deski') }}/images/icon/168.svg" alt=""></div>
-									<div class="text">
-										<h4>Abandoned Cart</h4>
-										<p>Send personalized follow-up emails to entice customers to complete their purchases. Track recovery rates with detailed analytics to optimize your strategies and provide a seamless shopping experience.</p>
-									
-									</div>
-								</div> <!-- /.block-style-thirtyTwo -->
-							</div>
-						</div>
-					</div>
-					<img src="{{ asset('themes/deski') }}/images/shape/237.svg" alt="" class="shapes shape-one">
-					<img src="{{ asset('themes/deski') }}/images/shape/238.svg" alt="" class="shapes shape-two">
-				</div> <!-- /.wrapper -->
-			</div> <!-- /.fancy-feature-thirty -->
-
-
-
-
-			<!--
-			=====================================================
-				Fancy Short Banner Fourteen
-			=====================================================
-			-->
-			<div class="fancy-short-banner-fourteen mt-150 md-mt-80">
-				<div class="container">
-					<div class="row">
-						<div class="col-12" data-aos="fade-up" data-aos-duration="1200">
-							<div class="title-style-thirteen">
-								<h2>Join Our Waitlist <br>Be the First to Experience Something Big!</h2>
-							</div>
-							</br>
-							<a href="/customer/register" class="theme-btn-twelve"> Join Our Waitlist Now!</a>
-						</div>
-					</div>
-				</div> <!-- /.container -->
-				<img src="{{ asset('themes/deski') }}/images/shape/239.svg" alt="" class="shapes shape-one">
-				<img src="{{ asset('themes/deski') }}/images/shape/240.svg" alt="" class="shapes shape-two">
-				<img src="{{ asset('themes/deski') }}/images/shape/232.svg" alt="" class="shapes shape-three">
-				<img src="{{ asset('themes/deski') }}/images/shape/233.svg" alt="" class="shapes shape-four">
-				<img src="{{ asset('themes/deski') }}/images/shape/234.svg" alt="" class="shapes shape-five">
-				<img src="{{ asset('themes/deski') }}/images/shape/235.svg" alt="" class="shapes shape-six">
-				<img src="{{ asset('themes/deski') }}/images/shape/236.svg" alt="" class="shapes shape-seven">
-				<img src="{{ asset('themes/deski') }}/images/shape/232.svg" alt="" class="shapes shape-eight">
-			</div> <!-- /.fancy-short-banner-fourteen -->
-
-
-
-			<!--
-			=====================================================
-				Footer Style Seven
-			=====================================================
-			-->
-			<footer class="theme-footer-seven mt-120 md-mt-100">
-				
-					
-
-					<div class="container">
-						<div class="bottom-footer">
-							<div class="row">
-								<div class="col-lg-4 order-lg-1 mb-20">
-									<ul class="d-flex justify-content-center justify-content-lg-start footer-nav">
-										<li><a href="#">Privacy & Terms.</a></li>
-										<li><a href="#">Contact Us</a></li>
-									</ul>
-								</div>
-								<div class="col-lg-4 order-lg-3 mb-20">
-									<ul class="d-flex justify-content-center justify-content-lg-end social-icon">
-									
-										<li><a href="https://twitter.com/olltekSA"><i class="fa fa-twitter" aria-hidden="true"></i></a></li>
-										<li><a href="https://www.linkedin.com/company/olltek"><i class="fa fa-linkedin" aria-hidden="true"></i></a></li>
-									</ul>
-								</div>
-								<div class="col-lg-4 order-lg-2 mb-20">
-									<p class="copyright text-center">Copyright @2023 OllTek by OllKom.</p>
-								</div>
-							</div>
-						</div>
-					</div>
-				 <!-- /.lg-container -->
-				
-			</footer> <!-- /.theme-footer-seven -->
-
-
-			
-		
-			<!-- Scroll Top Button -->
-			<button class="scroll-top">
-				<i class="fa fa-angle-up" aria-hidden="true"></i>
-			</button>
-
-		<!-- Optional JavaScript _____________________________  -->
-
-    	<!-- jQuery first, then Popper.js, then Bootstrap JS -->
-    	<!-- jQuery -->
-		<script src="{{ asset('themes/deski') }}/vendor/jquery.min.js"></script>
-		<!-- Popper js -->
-		<script src="{{ asset('themes/deski') }}/vendor/popper.js/popper.min.js"></script>
-		<!-- Bootstrap JS -->
-		<script src="{{ asset('themes/deski') }}/vendor/bootstrap/js/bootstrap.min.js"></script>
-	    <!-- menu  -->
-		<script src="{{ asset('themes/deski') }}/vendor/mega-menu/assets/js/custom.js"></script>
-		<!-- AOS js -->
-		<script src="{{ asset('themes/deski') }}/vendor/aos-next/dist/aos.js"></script>
-		<!-- js count to -->
-		<script src="{{ asset('themes/deski') }}/vendor/jquery.appear.js"></script>
-		<script src="{{ asset('themes/deski') }}/vendor/jquery.countTo.js"></script>
-		<!-- Slick Slider -->
-		<script src="{{ asset('themes/deski') }}/vendor/slick/slick.min.js"></script>
-		<!-- Fancybox -->
-		<script src="{{ asset('themes/deski') }}/vendor/fancybox/dist/jquery.fancybox.min.js"></script>
-
-		<!-- Theme js -->
-		<script src="{{ asset('themes/deski') }}/js/theme.js"></script>
-		</div> <!-- /.main-page-wrapper -->
-	</body>
+        </div>
+    </div>
+  </section>
+</body>
 </html>
